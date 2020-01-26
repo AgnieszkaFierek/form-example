@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: 'feedback',
     loadChildren: () => import('./feedback/feedback.module').then(f => f.FeedbackModule)
-  }
+  },
+  { path: '',
+    redirectTo: '/feedback',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
