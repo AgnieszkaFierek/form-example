@@ -5,9 +5,7 @@ export function dateValidator(dateFromControlName: string, dateToControlName: st
     const dateFrom = group.get(dateFromControlName);
     const dateTo = group.get(dateToControlName);
 
-    if (dateFrom.value <= dateTo.value) {
-      return { datesInvalid: false };
-    }
+    if (new Date(dateFrom.value) <= new Date(dateTo.value)) { return; }
 
     group.controls[dateToControlName].setErrors({datesInvalid: true});
     return { datesInvalid: true };

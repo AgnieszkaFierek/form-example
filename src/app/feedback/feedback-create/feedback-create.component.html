@@ -1,22 +1,22 @@
 <div class="feedback-create">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="feedback-create__form">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Title" formControlName="title" />
+      <input matInput placeholder="Title" formControlName="title" required />
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+      <textarea matInput placeholder="Description" formControlName="description" required></textarea>
     </mat-form-field>
 
     <div class="flex">
       <mat-form-field>
-        <input matInput [matDatepicker]="publishDate" placeholder="Publish date" formControlName="publishDate">
+        <input matInput [matDatepicker]="publishDate" placeholder="Publish date" formControlName="publishDate" required>
         <mat-datepicker-toggle matSuffix [for]="publishDate"></mat-datepicker-toggle>
         <mat-datepicker #publishDate></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="expirationDate" placeholder="Expiration date" formControlName="expirationDate">
+        <input matInput [matDatepicker]="expirationDate" placeholder="Expiration date" formControlName="expirationDate" required>
         <mat-datepicker-toggle matSuffix [for]="expirationDate"></mat-datepicker-toggle>
         <mat-datepicker #expirationDate></mat-datepicker>
         <mat-error *ngIf="form.controls.expirationDate.hasError('datesInvalid')">
@@ -32,7 +32,7 @@
     <div formArrayName="questions">
       <div  *ngFor="let question of form?.controls?.questions['controls']; let i = index" [formGroupName]="i">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Question" formControlName="question" />
+          <input matInput placeholder="Question" formControlName="question" required />
         </mat-form-field>
       </div>
     </div>
