@@ -5,7 +5,8 @@
   flex-direction: column;
 
   &__form {
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
   }
 
   &__add-question {
