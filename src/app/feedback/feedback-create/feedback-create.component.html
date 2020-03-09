@@ -9,19 +9,23 @@
     </mat-form-field>
 
     <div class="flex">
-      <mat-form-field>
-        <input matInput [matDatepicker]="publishDate" placeholder="Publish date" formControlName="publishDate" required>
+      <mat-form-field class="mr-24">
+        <input matInput [matDatepicker]="publishDate" placeholder="Publish date" formControlName="publishDate" required />
         <mat-datepicker-toggle matSuffix [for]="publishDate"></mat-datepicker-toggle>
         <mat-datepicker #publishDate></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="expirationDate" placeholder="Expiration date" formControlName="expirationDate" required>
+        <input
+          matInput
+          [matDatepicker]="expirationDate"
+          placeholder="Expiration date"
+          formControlName="expirationDate"
+          required
+        />
         <mat-datepicker-toggle matSuffix [for]="expirationDate"></mat-datepicker-toggle>
         <mat-datepicker #expirationDate></mat-datepicker>
-        <mat-error *ngIf="form.controls.expirationDate.hasError('datesInvalid')">
-          Wrong date
-        </mat-error>
+        <mat-error *ngIf="form.controls.expirationDate.hasError('datesInvalid')"> Wrong date </mat-error>
       </mat-form-field>
     </div>
 
@@ -30,15 +34,13 @@
     </div>
 
     <div formArrayName="questions">
-      <div  *ngFor="let question of form?.controls?.questions['controls']; let i = index" [formGroupName]="i">
+      <div *ngFor="let question of (form?.controls?.questions)['controls']; let i = index" [formGroupName]="i">
         <mat-form-field class="full-width">
           <input matInput placeholder="Question" formControlName="question" required />
         </mat-form-field>
       </div>
     </div>
 
-    <button mat-raised-button color="primary" type="submit" class="full-width" [disabled]="form.invalid">Crate</button>
-
+    <button mat-raised-button color="primary" type="submit" class="full-width" [disabled]="form.invalid">Create</button>
   </form>
 </div>
-
